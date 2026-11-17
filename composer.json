@@ -1,0 +1,71 @@
+{
+    "name": "jeffersongoncalves/laravel-ccpa-notices",
+    "description": "CCPA/CPRA notices for Laravel: privacy policy (§1798.130(a)(5)) and notice at collection (§1798.100(b)) built from your declared personal information, plus the Do Not Sell or Share and Limit the Use of Sensitive PI links.",
+    "keywords": [
+        "laravel",
+        "ccpa",
+        "cpra",
+        "privacy-policy",
+        "notice-at-collection",
+        "do-not-sell",
+        "privacy"
+    ],
+    "homepage": "https://github.com/jeffersongoncalves/laravel-ccpa-notices",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jefferson Simão Gonçalves",
+            "email": "gerson.simao.92@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "spatie/laravel-package-tools": "^1.16",
+        "illuminate/contracts": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.24",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JeffersonGoncalves\\CcpaNotices\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JeffersonGoncalves\\CcpaNotices\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JeffersonGoncalves\\CcpaNotices\\CcpaNoticesServiceProvider"
+            ],
+            "aliases": {
+                "CcpaNotices": "JeffersonGoncalves\\CcpaNotices\\Facades\\CcpaNotices"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
